@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHIA-WEI LIANG // Senior Product Designer & Art Director</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter, Space Mono, and Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Noto+Sans+TC:wght@300;500;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '"Noto Sans TC"', 'sans-serif'],
+            mono: ['"Space Mono"', 'monospace'],
+          },
+          colors: {
+            ink: '#080808',
+            paper: '#FAFAFA',
+            subtle: '#E5E5E5',
+            dim: '#737373',
+          },
+          letterSpacing: {
+            'ultra-wide': '0.3em',
+            'tightest': '-0.04em'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Architectural Swiss Grid lines & utility textures */
+    .swiss-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    }
+    .dark .swiss-grid-pattern {
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    }
+
+    /* 3D Perspective smoothing */
+    .perspective-card-wrapper {
+      perspective: 1200px;
+    }
+    .card-preserve-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+
+    /* Inversion animations */
+    .btn-swiss {
+      transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .btn-swiss:active {
+      transform: scale(0.97);
+    }
+
+    /* Crosshair marker accents */
+    .crosshair-corner {
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      pointer-events: none;
+    }
+    .crosshair-corner::before,
+    .crosshair-corner::after {
+      content: '';
+      position: absolute;
+      background-color: currentColor;
+    }
+    .crosshair-corner::before {
+      top: 6px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+    }
+    .crosshair-corner::after {
+      left: 6px;
+      top: 0;
+      height: 100%;
+      width: 1px;
+    }
+
+    /* Subtle pulsing badge */
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.85); }
+    }
+    .status-dot-pulse {
+      animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+</head>
+
+<body class="h-full bg-paper text-ink dark:bg-ink dark:text-paper selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black antialiased transition-colors duration-300 flex flex-col items-center justify-center p-4 sm:p-8 font-sans swiss-grid-pattern relative overflow-x-hidden">
+
+  <!-- Top Navigation / Micro Control Bar -->
+  <header class="fixed top-6 left-0 w-full px-6 sm:px-12 flex justify-between items-center z-40 text-xs font-mono tracking-widest uppercase pointer-events-none">
+    <div class="flex items-center gap-2 pointer-events-auto">
+      <span class="inline-block w-2 h-2 bg-black dark:bg-white rounded-none"></span>
+      <span class="font-bold opacity-90">INDEX // NO. 084</span>
+    </div>
+
+    <!-- Theme Switcher & Mode Toggles -->
+    <div class="flex items-center gap-4 pointer-events-auto">
+      <button id="themeToggleBtn" aria-label="Toggle Theme" class="border border-black dark:border-white px-3 py-1.5 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors flex items-center gap-2 text-[11px] font-mono font-bold">
+        <span id="themeIndicator">DARK MODE</span>
+        <svg id="themeIcon" class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+          <!-- Moon Icon (Default in light mode) -->
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Card Viewport Wrapper -->
+  <main class="perspective-card-wrapper w-full max-w-[480px] my-auto pt-10 pb-6 z-10">
+    <article id="businessCard" class="card-preserve-3d relative bg-white dark:bg-[#0c0c0c] border-2 border-black dark:border-white p-7 sm:p-10 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] dark:shadow-[10px_10px_0px_0px_rgba(255,255,255,0.9)]">
+
+      <!-- Swiss Crosshair Markers on 4 Corners -->
+      <div class="crosshair-corner -top-[7px] -left-[7px] text-black dark:text-white"></div>
+      <div class="crosshair-corner -top-[7px] -right-[7px] text-black dark:text-white"></div>
+      <div class="crosshair-corner -bottom-[7px] -left-[7px] text-black dark:text-white"></div>
+      <div class="crosshair-corner -bottom-[7px] -right-[7px] text-black dark:text-white"></div>
+
+      <!-- Card Header Metadata Bar -->
+      <div class="flex justify-between items-center pb-5 border-b border-black dark:border-white/20 text-[10px] font-mono tracking-widest uppercase">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-black dark:bg-white status-dot-pulse"></span>
+          <span class="tracking-widest">STATUS: OPEN FOR COLLAB</span>
+        </div>
+        <div class="opacity-60 text-right">
+          <span>LOC: TPE &bull; TYO</span>
+        </div>
+      </div>
+
+      <!-- Avatar Section (Geometric, Monochromatic, Interactive) -->
+      <div class="mt-8 mb-8 flex flex-col items-center sm:flex-row sm:items-start gap-6">
+        <div class="relative group cursor-pointer" id="avatarBox" title="點擊切換幾何頭像樣式 (Click to iterate avatar)">
+          
+          <!-- Avatar Frame Outer -->
+          <div class="w-28 h-28 sm:w-32 sm:h-32 border-2 border-black dark:border-white bg-paper dark:bg-black p-1 flex items-center justify-center transition-all duration-300 group-hover:scale-105 overflow-hidden relative">
+            
+            <!-- Generative SVG Abstract Geometric Artwork -->
+            <svg id="avatarSvg" class="w-full h-full text-black dark:text-white transition-all duration-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Geometric Mode 1 (Bauhaus Mondrian Grid & Circle) -->
+              <g id="avatarVariant1">
+                <rect x="5" y="5" width="90" height="90" stroke="currentColor" stroke-width="2" fill="none" />
+                <line x1="5" y1="55" x2="95" y2="55" stroke="currentColor" stroke-width="2" />
+                <line x1="45" y1="5" x2="45" y2="95" stroke="currentColor" stroke-width="2" />
+                <circle cx="25" cy="30" r="16" fill="currentColor" />
+                <rect x="52" y="62" width="36" height="26" stroke="currentColor" stroke-width="2" />
+                <line x1="5" y1="5" x2="45" y2="55" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" />
+                <circle cx="70" cy="30" r="12" stroke="currentColor" stroke-width="2" />
+              </g>
+
+              <!-- Geometric Mode 2 (Monogram / Typography LW) -->
+              <g id="avatarVariant2" class="hidden">
+                <rect x="8" y="8" width="84" height="84" stroke="currentColor" stroke-width="2" />
+                <text x="50" y="65" font-family="'Space Mono', monospace" font-size="40" font-weight="900" text-anchor="middle" fill="currentColor" letter-spacing="-2">LW</text>
+                <line x1="12" y1="88" x2="88" y2="88" stroke="currentColor" stroke-width="4" />
+                <circle cx="50" cy="18" r="4" fill="currentColor" />
+              </g>
+
+              <!-- Geometric Mode 3 (Optical Moire Lines) -->
+              <g id="avatarVariant3" class="hidden">
+                <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="2" />
+                <circle cx="50" cy="50" r="34" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="50" cy="50" r="26" stroke="currentColor" stroke-width="2" />
+                <circle cx="50" cy="50" r="18" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="50" cy="50" r="10" stroke="currentColor" stroke-width="2" fill="currentColor" />
+                <line x1="8" y1="50" x2="92" y2="50" stroke="currentColor" stroke-width="2" />
+                <line x1="50" y1="8" x2="50" y2="92" stroke="currentColor" stroke-width="2" />
+              </g>
+            </svg>
+
+            <!-- Interactive badge indicator -->
+            <div class="absolute bottom-1 right-1 bg-black text-white dark:bg-white dark:text-black text-[9px] font-mono px-1 py-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+              SHIFT
+            </div>
+          </div>
+
+          <!-- Micro tooltip -->
+          <div class="text-[9px] font-mono tracking-widest text-center mt-1.5 opacity-50 uppercase">
+            [CLICK TO MORPH]
+          </div>
+        </div>
+
+        <!-- Identity & Name Header Block -->
+        <div class="flex-1 text-center sm:text-left flex flex-col justify-center">
+          <div class="text-[10px] font-mono tracking-[0.25em] text-neutral-500 dark:text-neutral-400 mb-1">
+            PORTFOLIO // IDENTITY
+          </div>
+          
+          <!-- Primary Name Typography (Bilingual High Contrast) -->
+          <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tight leading-none text-black dark:text-white">
+            CHIA-WEI LIANG
+          </h1>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-widest text-neutral-800 dark:text-neutral-200 mt-1 mb-2 font-sans">
+            梁 嘉 瑋
+          </h2>
+
+          <!-- Role & Distinction -->
+          <div class="pt-2 border-t border-black/10 dark:border-white/20">
+            <p class="text-[11px] sm:text-[12px] font-mono tracking-[0.14em] font-bold uppercase leading-relaxed text-black dark:text-white">
+              SENIOR PRODUCT DESIGNER<br class="hidden sm:inline"> &amp; ART DIRECTOR
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disciplines / Tags Grid (Strict Swiss Modular System) -->
+      <div class="my-6 pt-5 border-t border-black dark:border-white/20">
+        <div class="text-[10px] font-mono uppercase tracking-[0.2em] opacity-60 mb-2.5">
+          CORE DISCIPLINES &bull; 核心專業領域
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-xs font-mono font-medium">
+          <div class="border border-black dark:border-white/30 px-2.5 py-1.5 flex items-center justify-between hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+            <span>&bull; DESIGN SYSTEMS</span>
+            <span class="text-[10px] opacity-60">01</span>
+          </div>
+          <div class="border border-black dark:border-white/30 px-2.5 py-1.5 flex items-center justify-between hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+            <span>&bull; UI / UX ARCH</span>
+            <span class="text-[10px] opacity-60">02</span>
+          </div>
+          <div class="border border-black dark:border-white/30 px-2.5 py-1.5 flex items-center justify-between hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+            <span>&bull; TYPOGRAPHY</span>
+            <span class="text-[10px] opacity-60">03</span>
+          </div>
+          <div class="border border-black dark:border-white/30 px-2.5 py-1.5 flex items-center justify-between hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+            <span>&bull; CREATIVE CODE</span>
+            <span class="text-[10px] opacity-60">04</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Action Buttons -->
+      <div class="space-y-2.5 mt-7">
+        <!-- Main Inverting CTA Button (Email Micro-interaction) -->
+        <button id="copyEmailBtn" class="btn-swiss w-full bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white py-3.5 px-6 flex items-center justify-between font-mono font-bold text-xs sm:text-sm uppercase tracking-widest hover:bg-transparent hover:text-black dark:hover:bg-transparent dark:hover:text-white group">
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span id="copyButtonText">GET IN TOUCH // 複製信箱</span>
+          </span>
+          <span class="font-sans text-base leading-none transition-transform group-hover:translate-x-1">&rarr;</span>
+        </button>
+
+        <!-- Secondary Action Row: QR Code / vCard & Portfolio link -->
+        <div class="grid grid-cols-2 gap-2.5 font-mono text-xs">
+          <button id="openContactModalBtn" class="btn-swiss border-2 border-black dark:border-white py-2.5 px-4 font-bold uppercase tracking-wider text-center hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>QR CODE</span>
+          </button>
+          
+          <button id="downloadVcardBtn" class="btn-swiss border-2 border-black dark:border-white py-2.5 px-4 font-bold uppercase tracking-wider text-center hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>SAVE VCARD</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Social & Network Footer Handles -->
+      <footer class="mt-8 pt-5 border-t border-black/10 dark:border-white/20 flex justify-between items-center text-[10px] font-mono tracking-widest uppercase">
+        <a href="#github" class="hover:underline transition-opacity hover:opacity-75">GH: @jiaweiliang</a>
+        <span class="opacity-40">/</span>
+        <a href="#readcv" class="hover:underline transition-opacity hover:opacity-75">READ.CV</a>
+        <span class="opacity-40">/</span>
+        <a href="#x" class="hover:underline transition-opacity hover:opacity-75">X: @liang_art</a>
+        <span class="opacity-40">/</span>
+        <a href="#behance" class="hover:underline transition-opacity hover:opacity-75">BĒHANCE</a>
+      </footer>
+    </article>
+  </main>
+
+  <!-- Bottom Coordinates / Legal Mark -->
+  <div class="fixed bottom-4 left-0 w-full px-8 flex justify-between items-center text-[10px] font-mono tracking-widest text-neutral-400 dark:text-neutral-500 uppercase pointer-events-none hidden sm:flex">
+    <span>LAT: 25.0330&deg; N &bull; LON: 121.5654&deg; E</span>
+    <span>SWISS MODERNISM &bull; 2026 EDITION</span>
+  </div>
+
+  <!-- Clean High-Contrast QR Code / Contact Modal -->
+  <div id="contactModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-200">
+    <div class="bg-white dark:bg-black border-2 border-black dark:border-white p-7 max-w-sm w-full relative shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.8)]">
+      
+      <!-- Close Button -->
+      <button id="closeModalBtn" class="absolute top-4 right-4 w-7 h-7 border border-black dark:border-white flex items-center justify-center font-mono font-bold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors" aria-label="Close dialog">
+        &times;
+      </button>
+
+      <div class="text-xs font-mono uppercase tracking-[0.25em] mb-1 opacity-70">
+        SCAN TO CONNECT
+      </div>
+      <h3 class="text-xl font-black uppercase tracking-tight mb-4">
+        DIGITAL CONTACT
+      </h3>
+
+      <!-- Minimalist Vector QR Code Representation -->
+      <div class="w-48 h-48 mx-auto border-2 border-black dark:border-white p-3 bg-white flex items-center justify-center my-4">
+        <!-- SVG QR Code (Clean, functional, and self-contained) -->
+        <svg class="w-full h-full text-black" viewBox="0 0 29 29" fill="currentColor" shape-rendering="crispEdges">
+          <!-- Outer positioning squares (Top Left) -->
+          <path d="M0 0h7v7H0z M1 1v5h5V1z M2 2h3v3H2z"/>
+          <!-- Outer positioning squares (Top Right) -->
+          <path d="M22 0h7v7H22z M23 1v5h5V1z M24 2h3v3H24z"/>
+          <!-- Outer positioning squares (Bottom Left) -->
+          <path d="M0 22h7v7H0z M1 23v5h5V23z M2 24h3v3H2z"/>
+          <!-- QR data pattern matrix -->
+          <path d="M8 1h1v1H8z M10 1h2v1h-2z M13 1h1v2h-1z M15 1h1v1h-1z M17 1h1v1h-1z M19 1h2v1h-2z
+                   M9 3h2v1H9z M12 3h1v1h-1z M16 3h2v1h-2z M20 3h1v1h-1z
+                   M8 5h1v2H8z M11 5h1v1h-1z M14 5h3v1h-3z M18 5h1v2h-1z
+                   M0 8h1v1H0z M2 8h2v1H2z M5 8h2v1H5z M8 8h1v3H8z M10 8h1v1h-1z M12 8h3v1h-3z M17 8h1v2h-1z M20 8h2v1h-2z M23 8h1v1h-1z M26 8h2v1h-2z
+                   M1 10h1v2H1z M3 10h2v1H3z M6 10h1v1H6z M10 10h2v1h-2z M13 10h1v1h-1z M15 10h1v2h-1z M18 10h2v1h-2z M22 10h1v2h-1z M25 10h1v1h-1z M27 10h2v1h-2z
+                   M2 12h2v1H2z M5 12h1v1H5z M9 12h1v2H9z M11 12h3v1h-3z M16 12h2v1h-2z M20 12h1v1h-1z M24 12h2v1h-2z M28 12h1v1h-1z
+                   M8 14h2v1H8z M11 14h1v1h-1z M13 14h3v1h-3z M17 14h1v1h-1z M19 14h3v1h-3z M24 14h1v1h-1z M27 14h2v1h-2z
+                   M0 16h2v1H0z M3 16h1v1H3z M5 16h2v1H5z M8 16h1v2H8z M10 16h3v1h-3z M15 16h1v1h-1z M18 16h1v2h-1z M21 16h2v1h-2z M25 16h2v1h-2z
+                   M1 18h2v1H1z M4 18h1v1H4z M6 18h1v2H6z M11 18h2v1h-2z M14 18h1v1h-1z M16 18h1v1h-1z M20 18h1v1h-1z M23 18h3v1h-3z M27 18h1v2h-1z
+                   M2 20h3v1H2z M9 20h2v1H9z M12 20h1v2h-1z M15 20h2v1h-2z M19 20h1v1h-1z M21 20h2v1h-2z M25 20h1v1h-1z
+                   M8 22h1v1H8z M10 22h1v1h-1z M13 22h2v1h-2z M16 22h3v1h-3z M20 22h1v1h-1z M22 22h3v1h-3z M27 22h1v2h-1z
+                   M9 24h2v1H9z M12 24h1v1h-1z M14 24h1v2h-1z M17 24h1v1h-1z M19 24h2v1h-2z M23 24h1v1h-1z M25 24h2v1h-2z
+                   M8 26h3v1H8z M12 26h1v1h-1z M15 26h2v1h-2z M18 26h2v1h-2z M22 26h1v1h-1z M24 26h2v1h-2z M28 26h1v1h-1z
+                   M9 28h1v1H9z M11 28h2v1h-2z M16 28h1v1h-1z M19 28h3v1h-3z M24 28h1v1h-1z M26 28h2v1h-2z"/>
+        </svg>
+      </div>
+
+      <div class="text-[11px] font-mono text-center space-y-1 mt-4 border-t border-black/10 dark:border-white/20 pt-3">
+        <p class="font-bold">contact@liangjiawei.design</p>
+        <p class="opacity-60">+886 912 345 678 &bull; TAIPEI</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimalist High-Contrast Toast Notification -->
+  <div id="toastNotification" class="fixed bottom-8 bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white px-5 py-3 font-mono text-xs uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(100,100,100,0.5)] flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none z-50">
+    <span class="w-2 h-2 bg-white dark:bg-black inline-block"></span>
+    <span id="toastMessage">EMAIL COPIED TO CLIPBOARD</span>
+  </div>
+
+  <script>
+    // State management & DOM elements
+    let currentAvatarIndex = 1;
+    const totalAvatarVariants = 3;
+    const emailToCopy = 'contact@liangjiawei.design';
+
+    const card = document.getElementById('businessCard');
+    const avatarBox = document.getElementById('avatarBox');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIndicator = document.getElementById('themeIndicator');
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    const copyButtonText = document.getElementById('copyButtonText');
+    const openContactModalBtn = document.getElementById('openContactModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const contactModal = document.getElementById('contactModal');
+    const downloadVcardBtn = document.getElementById('downloadVcardBtn');
+    const toastNotification = document.getElementById('toastNotification');
+    const toastMessage = document.getElementById('toastMessage');
+
+    // 1. Interactive Theme Switcher (Light / Dark)
+    function applyTheme(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        themeIndicator.textContent = 'LIGHT MODE';
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeIndicator.textContent = 'DARK MODE';
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      themeIndicator.textContent = isDark ? 'LIGHT MODE' : 'DARK MODE';
+      showToast(isDark ? 'MODE: OBSIDIAN DARK' : 'MODE: BAUHAUS LIGHT');
+    });
+
+    // 2. Avatar Morphing Variant Switcher on Click
+    avatarBox.addEventListener('click', () => {
+      // Hide current variant
+      const currentElement = document.getElementById(`avatarVariant${currentAvatarIndex}`);
+      if (currentElement) currentElement.classList.add('hidden');
+
+      // Increment variant
+      currentAvatarIndex = (currentAvatarIndex % totalAvatarVariants) + 1;
+
+      // Show next variant
+      const nextElement = document.getElementById(`avatarVariant${currentAvatarIndex}`);
+      if (nextElement) nextElement.classList.remove('hidden');
+
+      showToast(`AVATAR SHIFT // PATTERN 0${currentAvatarIndex}`);
+    });
+
+    // 3. Robust Clipboard Copying Function (No alert/confirm)
+    function copyTextToClipboard(text) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.top = '-9999px';
+      textArea.style.left = '-9999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      let successful = false;
+      try {
+        successful = document.execCommand('copy');
+      } catch (err) {
+        successful = false;
+      }
+      document.body.removeChild(textArea);
+      return successful;
+    }
+
+    copyEmailBtn.addEventListener('click', () => {
+      const success = copyTextToClipboard(emailToCopy);
+      if (success) {
+        const originalText = copyButtonText.textContent;
+        copyButtonText.textContent = 'COPIED // 信箱已複製 ✓';
+        showToast('COPIED: ' + emailToCopy);
+        setTimeout(() => {
+          copyButtonText.textContent = originalText;
+        }, 2400);
+      } else {
+        showToast('CONTACT: ' + emailToCopy);
+      }
+    });
+
+    // 4. Modal Dialog Controls
+    function openModal() {
+      contactModal.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeModal() {
+      contactModal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    openContactModalBtn.addEventListener('click', openModal);
+    closeModalBtn.addEventListener('click', closeModal);
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) closeModal();
+    });
+
+    // Keyboard navigation: Escape key closes modal
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // 5. Minimalist Toast Dispatcher
+    let toastTimeout = null;
+    function showToast(msg) {
+      toastMessage.textContent = msg;
+      toastNotification.classList.remove('translate-y-24', 'opacity-0');
+      toastNotification.classList.add('translate-y-0', 'opacity-100');
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toastNotification.classList.add('translate-y-24', 'opacity-0');
+        toastNotification.classList.remove('translate-y-0', 'opacity-100');
+      }, 2200);
+    }
+
+    // 6. vCard (.vcf) Generator & Downloader
+    downloadVcardBtn.addEventListener('click', () => {
+      const vcardContent = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N:Liang;Chia-Wei;;;',
+        'FN:Chia-Wei Liang (梁嘉瑋)',
+        'ORG:Studio Liang Chia-Wei',
+        'TITLE:Senior Product Designer & Art Director',
+        'EMAIL;TYPE=INTERNET,WORK:' + emailToCopy,
+        'NOTE:Minimalist Swiss-Style Product Designer & Creative Director',
+        'END:VCARD'
+      ].join('\n');
+
+      const blob = new Blob([vcardContent], { type: 'text/vcard;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Chia_Wei_Liang_Designer.vcf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      showToast('VCARD DOWNLOADED // 聯絡人已下載');
+    });
+
+    // 7. Subtle 3D Card Tilt Interaction (Responsive & smooth)
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const cardWrapper = document.querySelector('.perspective-card-wrapper');
+
+      cardWrapper.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        // Subtle, elegant degree angles (max ±4 deg for Swiss poise)
+        const rotateX = ((y - centerY) / centerY) * -4.5;
+        const rotateY = ((x - centerX) / centerX) * 4.5;
+
+        card.style.transform = `rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+      });
+
+      cardWrapper.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+      });
+    }
+  </script>
+</body>
+</html>
